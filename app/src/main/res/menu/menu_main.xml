@@ -2,9 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.lucasvieira.coleoboardgames.MainActivity">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+
+    <item android:id="@+id/item_adicionar"
+        android:orderInCategory="1"
+        android:title="Adicionar"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_adicionar_24"/>
+
+    <item android:id="@+id/item_pesquisar"
+        android:orderInCategory="2"
+        android:title="Pesquisar"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_pesquisar_24"/>
 </menu>
