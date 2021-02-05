@@ -12,7 +12,19 @@ public class Boardgame {
     private String descrição;
     private int capa;
 
-    public Boardgame(){}
+    public Boardgame(String nome, String duração, int minJogadores, int maxJogadores, String dificuldade, String cooperativo, String cartas, String descrição, int capa) {
+        this.nome = nome;
+        this.duração = duração;
+        this.minJogadores = minJogadores;
+        this.maxJogadores = maxJogadores;
+        this.dificuldade = dificuldade;
+        this.cooperativo = cooperativo;
+        this.cartas = cartas;
+        this.descrição = descrição;
+        this.capa = capa;
+    }
+
+    public Boardgame(){ }
 
     public String getNome() {
         return nome;
