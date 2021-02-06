@@ -32,8 +32,7 @@ public class ActivityDetalhes extends AppCompatActivity {
         dificuldade = findViewById(R.id.dificuldade);
         cooperativo = findViewById(R.id.cooperativo);
         cartas = findViewById(R.id.cartas);
-        min = findViewById(R.id.minJogador);
-        max = findViewById(R.id.maxJogador);
+            max = findViewById(R.id.jogadores);
 
         nome.setText(dados.getNome());
         duracao.setText(dados.getDuracao());
@@ -42,7 +41,6 @@ public class ActivityDetalhes extends AppCompatActivity {
 //        dificuldade.setText(dados.getDificuldade());
 //        cooperativo.setText(dados.getCooperativo());
 //        cartas.setText(dados.getCartas());
-//        min.setText(dados.getMinJogadores());
-//        max.setText(dados.getMaxJogadores());
+//        min.setText(dados.getjogadores());
     }
 }

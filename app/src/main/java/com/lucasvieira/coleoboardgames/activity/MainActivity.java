@@ -121,21 +121,21 @@ public class MainActivity extends AppCompatActivity {
         b1 = new Boardgame();
         b1.setNome("Arcadia Quest");
         b1.setDuracao("1h30 p/ missão");
-        b1.setDescricao("Tabuleiro PvPvE com seus amigos");
+        b1.setDescricao(R.string.arcadiaquest);
         b1.setCapa(R.drawable.arcadiaquest);
         this.listaBoardgames.add(b1);
 
         b2 = new Boardgame();
         b2.setNome("Camel Up");
         b2.setDuracao("40 min");
-        b2.setDescricao("Apostadores de camelos, vence quem tiver mais dinheiro");
+        b2.setDescricao(R.string.camelup);
         b2.setCapa(R.drawable.camelup);
         this.listaBoardgames.add(b2);
 
         b3 = new Boardgame();
         b3.setNome("Jaipur");
         b3.setDuracao("20 min");
-        b3.setDescricao("Negociação 1v1, vence aquele que melhor se adaptar ao mercado");
+        b3.setDescricao(R.string.jaipur);
         b3.setCapa(R.drawable.jaipur);
         this.listaBoardgames.add(b3);
     }

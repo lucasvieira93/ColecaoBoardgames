@@ -6,21 +6,19 @@ public class Boardgame implements Serializable   {
 
     private String nome;
     private String duracao;
-    private String descricao;
+    private int descricao;
     private int capa;
-    private int minJogadores;
-    private int maxJogadores;
+    private int[] jogadores;
     private String dificuldade;
     private String cooperativo;
     private String cartas;
 
-    public Boardgame(String nome, String duração, String descrição, int capa) {
+    public Boardgame(String nome, String duração, int descrição, int capa) {
         this.nome = nome;
         this.duracao = duração;
         this.descricao = descrição;
         this.capa = capa;
-//        this.minJogadores = minJogadores;
-//        this.maxJogadores = maxJogadores;
+//        this.jogadores = jogadores;
 //        this.dificuldade = dificuldade;
 //        this.cooperativo = cooperativo;
 //        this.cartas = cartas;
@@ -44,20 +42,12 @@ public class Boardgame implements Serializable   {
         this.duracao = duracao;
     }
 
-    public int getMinJogadores() {
-        return minJogadores;
+    public int[] getJogadores() {
+        return jogadores;
     }
 
-    public void setMinJogadores(int minJogadores) {
-        this.minJogadores = minJogadores;
-    }
-
-    public int getMaxJogadores() {
-        return maxJogadores;
-    }
-
-    public void setMaxJogadores(int maxJogadores) {
-        this.maxJogadores = maxJogadores;
+    public void setJogadores(int[] jogadores) {
+        this.jogadores = jogadores;
     }
 
     public String getDificuldade() {
@@ -84,11 +74,11 @@ public class Boardgame implements Serializable   {
         this.cartas = cartas;
     }
 
-    public String getDescricao() {
+    public int getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
+    public void setDescricao(int descricao) {
         this.descricao = descricao;
     }
 

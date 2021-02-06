@@ -34,19 +34,11 @@
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/minJogador"
+        android:id="@+id/jogadores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="2dp"
-        android:text="Min Jogadores"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/maxJogador"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="Max Jogadores"
+        android:text="Nº de Jogadores"
         android:textSize="14sp" />
 
     <TextView
@@ -62,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="2dp"
-        android:text="Competitivo ou Cooperativo?"
+        android:text="Cooperativo?"
         android:textSize="14sp" />
 
     <TextView
@@ -70,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="2dp"
-        android:text="Tabuleiro ou Cartas?"
+        android:text="Cartas?"
         android:textSize="14sp" />
 
     <TextView

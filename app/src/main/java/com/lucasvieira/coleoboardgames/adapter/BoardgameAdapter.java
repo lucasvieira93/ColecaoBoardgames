@@ -44,8 +44,7 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
 //        holder.textDificuldade.setText(boardgame.getDificuldade());
 //        holder.textCoop.setText(boardgame.getCooperativo());
 //        holder.textCartas.setText(boardgame.getCartas());
-//        holder.numeroMin.setText(boardgame.getMinJogadores());
-//        holder.numeroMax.setText(boardgame.getMaxJogadores());
+//        holder.jogador.setText(boardgame.getJogador());
 
     }
 
@@ -56,7 +55,7 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         //variáveis dos componentes
-        TextView textNome, textDuracao, textDificuldade, textDescricao, textCoop, textCartas, numeroMin, numeroMax;
+        TextView textNome, textDuracao, textDificuldade, textDescricao, textCoop, textCartas, jogador;
         ImageView capaBoard;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -70,9 +69,7 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
 //            textDificuldade = itemView.findViewById(R.id.dificuldade);
 //            textCoop = itemView.findViewById(R.id.cooperativo);
 //            textCartas = itemView.findViewById(R.id.cartas);
-//            numeroMin = itemView.findViewById(R.id.minJogador);
-//            numeroMax = itemView.findViewById(R.id.maxJogador);
-//        }
+//            jogador = itemView.findViewById(R.id.jogador);
         }
     }
 }

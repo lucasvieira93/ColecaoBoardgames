@@ -9,4 +9,30 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="arcadiaquest">
+        Em Arcadia Quest, os jogadores levam alianças de heróis intrépidos em uma campanha épica para destronar o lorde vampiro e recuperar o poderoso Arcadia.
+        Mas só uma guilda pode levá-lo no final, e os jogadores devem lutar uns contra os outros, bem como contra as forças de ocupação monstruosas.
+
+        Arcadia Quest é um jogo baseado em campanha para 2 a 4 jogadores, onde cada jogador controla uma guilda de três heróis únicos, enfrentando os outros jogadores e os vários monstros controlados pelo jogo.
+        Os jogadores precisam cumprir uma série de missões para ganhar cada cenário e escolher para onde ir na campanha.
+
+        Os jogadores são capazes de escolher o caminho que a campanha leva, navegar através de seis dos onze cenários disponíveis,
+        de modo que cada vez que a campanha é jogada, ela pode ter uma configuração diferente de cenários. À medida que a campanha avança, os heróis são capazes de adquirir novas armas,
+        equipamentos e habilidades que lhes dão opções poderosas para combater os obstáculos à frente. Além disso, mediante o cumprimento de missões específicas em um cenário,
+        os jogadores desbloqueiam recursos exclusivos em cenários posteriores.</string>
+
+    <string name="camelup">
+        Em Camel Up, até oito jogadores apostam em cinco camelos de corrida, tentando descobrir quais serão os primeiros e segundos colocados em uma corrida rápida em torno de uma pirâmide.
+        Quanto mais cedo você fizer a sua aposta, mais você pode ganhar - você deve adivinhar corretamente, é claro. Os camelos não correm bem, no entanto, às vezes pousam em cima de outro
+        e são levados para a linha de chegada. Quem vai correr quando? Isso tudo depende de como os dados saem do agitador de dados da pirâmide, que libera um dado de cada vez quando os
+        jogadores fazem uma pausa de suas apostas tempo suficiente para ver quem realmente está se movendo!  Esta edição de 2018 do Camel Up apresenta novas artes, um novo design de tabuleiro
+        de jogo, um novo design de pirâmide, dados gravados e novos modos de jogo, incluindo camelos desonestos malucos que começam a corrida na direção oposta! Você nunca sabe como uma corrida vai acabar!</string>
+
+    <string name="jaipur">
+        Jaipur, capital de Rajasthan. Você é um dos dois mais poderosos mercadores da cidade.  Mas isso não é o suficiente para você, porque só o comerciante com
+        dois Selos de Excelência terá o privilégio de ser convidado para a corte do Maharaja.  Portanto, você terá de fazer melhor do que o seu concorrente direto,
+        comprando, trocando e vendendo a preços melhores, ao mesmo tempo mantendo um olho em ambos os seus rebanhos de camelos.  Um jogo de cartas para dois comerciantes experientes!
+        Quando é a sua vez, você pode tirar ou vender cartas.  Jaipur é um jogo de cartas acelerado, uma mistura de táticas, risco e sorte.</string>
+
 </resources>
