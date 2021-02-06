@@ -1,27 +1,29 @@
 package com.lucasvieira.coleoboardgames.model;
 
-public class Boardgame {
+import java.io.Serializable;
+
+public class Boardgame implements Serializable   {
 
     private String nome;
-    private String duração;
+    private String duracao;
+    private String descricao;
+    private int capa;
     private int minJogadores;
     private int maxJogadores;
     private String dificuldade;
     private String cooperativo;
     private String cartas;
-    private String descrição;
-    private int capa;
 
-    public Boardgame(String nome, String duração, int minJogadores, int maxJogadores, String dificuldade, String cooperativo, String cartas, String descrição, int capa) {
+    public Boardgame(String nome, String duração, String descrição, int capa) {
         this.nome = nome;
-        this.duração = duração;
-        this.minJogadores = minJogadores;
-        this.maxJogadores = maxJogadores;
-        this.dificuldade = dificuldade;
-        this.cooperativo = cooperativo;
-        this.cartas = cartas;
-        this.descrição = descrição;
+        this.duracao = duração;
+        this.descricao = descrição;
         this.capa = capa;
+//        this.minJogadores = minJogadores;
+//        this.maxJogadores = maxJogadores;
+//        this.dificuldade = dificuldade;
+//        this.cooperativo = cooperativo;
+//        this.cartas = cartas;
     }
 
     public Boardgame(){ }
@@ -34,12 +36,12 @@ public class Boardgame {
         this.nome = nome;
     }
 
-    public String getDuração() {
-        return duração;
+    public String getDuracao() {
+        return duracao;
     }
 
-    public void setDuração(String duração) {
-        this.duração = duração;
+    public void setDuracao(String duracao) {
+        this.duracao = duracao;
     }
 
     public int getMinJogadores() {
@@ -82,12 +84,12 @@ public class Boardgame {
         this.cartas = cartas;
     }
 
-    public String getDescrição() {
-        return descrição;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescrição(String descrição) {
-        this.descrição = descrição;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public int getCapa() {

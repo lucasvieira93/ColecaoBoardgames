@@ -38,8 +38,8 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
 
         //setar dados dos boards referenciando os componentes da linha 67
         holder.textNome.setText(boardgame.getNome());
-        holder.textDuracao.setText(boardgame.getDuração());
-        holder.textDescricao.setText(boardgame.getDescrição());
+        holder.textDuracao.setText(boardgame.getDuracao());
+        holder.textDescricao.setText(boardgame.getDescricao());
         holder.capaBoard.setImageResource(boardgame.getCapa());
 //        holder.textDificuldade.setText(boardgame.getDificuldade());
 //        holder.textCoop.setText(boardgame.getCooperativo());

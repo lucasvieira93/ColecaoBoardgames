@@ -1,5 +1,6 @@
 package com.lucasvieira.coleoboardgames.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -12,8 +13,6 @@ import com.lucasvieira.coleoboardgames.model.RecyclerItemClickListener;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -65,12 +64,17 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onItemClick(View view, int position) {
                                 Boardgame bg = listaBoardgames.get(position);
-                                Toast.makeText(MainActivity.this, "Nome do jogo: " + bg.getNome(), Toast.LENGTH_SHORT).show();
+                                Boardgame dados = new Boardgame(bg.getNome(), bg.getDuracao(), bg.getDescricao(), bg.getCapa());
+
+                                Intent intent = new Intent(getApplicationContext(), ActivityDetalhes.class);
+                                intent.putExtra("dados", dados);
+                                startActivity(intent);
                             }
 
                             @Override
                             public void onLongItemClick(View view, int position) {
-
+                                Boardgame bg = listaBoardgames.get(position);
+                                Toast.makeText(MainActivity.this, "Nome do jogo: " + bg.getNome(), Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
@@ -116,22 +120,22 @@ public class MainActivity extends AppCompatActivity {
 
         b1 = new Boardgame();
         b1.setNome("Arcadia Quest");
-        b1.setDuração("1h30 p/ missão");
-        b1.setDescrição("Tabuleiro PvPvE com seus amigos");
+        b1.setDuracao("1h30 p/ missão");
+        b1.setDescricao("Tabuleiro PvPvE com seus amigos");
         b1.setCapa(R.drawable.arcadiaquest);
         this.listaBoardgames.add(b1);
 
         b2 = new Boardgame();
         b2.setNome("Camel Up");
-        b2.setDuração("40 min");
-        b2.setDescrição("Apostadores de camelos, vence quem tiver mais dinheiro");
+        b2.setDuracao("40 min");
+        b2.setDescricao("Apostadores de camelos, vence quem tiver mais dinheiro");
         b2.setCapa(R.drawable.camelup);
         this.listaBoardgames.add(b2);
 
         b3 = new Boardgame();
         b3.setNome("Jaipur");
-        b3.setDuração("20 min");
-        b3.setDescrição("Negociação 1v1, vence aquele que melhor se adaptar ao mercado");
+        b3.setDuracao("20 min");
+        b3.setDescricao("Negociação 1v1, vence aquele que melhor se adaptar ao mercado");
         b3.setCapa(R.drawable.jaipur);
         this.listaBoardgames.add(b3);
     }
