@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.lucasvieira.coleoboardgames.R;
 import com.lucasvieira.coleoboardgames.adapter.BoardgameAdapter;
 import com.lucasvieira.coleoboardgames.model.Boardgame;
+import com.lucasvieira.coleoboardgames.model.RecyclerItemClickListener;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -21,6 +22,7 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -55,12 +57,33 @@ public class MainActivity extends AppCompatActivity {
         recyclerBoard.setHasFixedSize(true);
         recyclerBoard.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
         recyclerBoard.setAdapter(adapter);
+        recyclerBoard.addOnItemTouchListener(
+                new RecyclerItemClickListener(
+                        getApplicationContext(),
+                        recyclerBoard,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Boardgame bg = listaBoardgames.get(position);
+                                Toast.makeText(MainActivity.this, "Nome do jogo: " + bg.getNome(), Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            }
+                        }));
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Botão ainda sem ação Lucas!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -95,18 +118,21 @@ public class MainActivity extends AppCompatActivity {
         b1.setNome("Arcadia Quest");
         b1.setDuração("1h30 p/ missão");
         b1.setDescrição("Tabuleiro PvPvE com seus amigos");
+        b1.setCapa(R.drawable.arcadiaquest);
         this.listaBoardgames.add(b1);
 
         b2 = new Boardgame();
         b2.setNome("Camel Up");
         b2.setDuração("40 min");
         b2.setDescrição("Apostadores de camelos, vence quem tiver mais dinheiro");
+        b2.setCapa(R.drawable.camelup);
         this.listaBoardgames.add(b2);
 
         b3 = new Boardgame();
         b3.setNome("Jaipur");
         b3.setDuração("20 min");
         b3.setDescrição("Negociação 1v1, vence aquele que melhor se adaptar ao mercado");
+        b3.setCapa(R.drawable.jaipur);
         this.listaBoardgames.add(b3);
     }
 }

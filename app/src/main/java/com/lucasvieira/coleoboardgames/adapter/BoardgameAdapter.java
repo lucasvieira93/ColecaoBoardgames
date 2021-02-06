@@ -17,6 +17,7 @@ import java.util.List;
 public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyViewHolder> {
 
     private List<Boardgame> listaBoardgames;
+
     public BoardgameAdapter(List<Boardgame> boardgames) {
         this.listaBoardgames = boardgames;
     }
@@ -39,12 +40,12 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
         holder.textNome.setText(boardgame.getNome());
         holder.textDuracao.setText(boardgame.getDuração());
         holder.textDescricao.setText(boardgame.getDescrição());
+        holder.capaBoard.setImageResource(boardgame.getCapa());
 //        holder.textDificuldade.setText(boardgame.getDificuldade());
 //        holder.textCoop.setText(boardgame.getCooperativo());
 //        holder.textCartas.setText(boardgame.getCartas());
 //        holder.numeroMin.setText(boardgame.getMinJogadores());
 //        holder.numeroMax.setText(boardgame.getMaxJogadores());
-//        holder.capaBoard.setImageResource(boardgame.getCapa());
 
     }
 
@@ -65,12 +66,13 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
             textNome = itemView.findViewById(R.id.nomeBoard);
             textDuracao = itemView.findViewById(R.id.duracaoBoard);
             textDescricao = itemView.findViewById(R.id.descricaoBoard);
-            textDificuldade = itemView.findViewById(R.id.dificuldade);
-            textCoop = itemView.findViewById(R.id.cooperativo);
-            textCartas = itemView.findViewById(R.id.cartas);
-            numeroMin = itemView.findViewById(R.id.minJogador);
-            numeroMax = itemView.findViewById(R.id.maxJogador);
-//            capaBoard = itemView.findViewById(R.id.capaImage);
+            capaBoard = itemView.findViewById(R.id.capaBoard);
+//            textDificuldade = itemView.findViewById(R.id.dificuldade);
+//            textCoop = itemView.findViewById(R.id.cooperativo);
+//            textCartas = itemView.findViewById(R.id.cartas);
+//            numeroMin = itemView.findViewById(R.id.minJogador);
+//            numeroMax = itemView.findViewById(R.id.maxJogador);
+//        }
         }
     }
 }
