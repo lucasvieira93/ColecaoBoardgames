@@ -20,6 +20,7 @@
         android:id="@+id/nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
         android:padding="2dp"
         android:text="Nome"
         android:textSize="18sp"
@@ -38,31 +39,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="2dp"
-        android:text="Nº de Jogadores"
+        android:text="Max Jogadores"
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/dificuldade"
+        android:id="@+id/lancamento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="2dp"
-        android:text="Dificuldade"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/cooperativo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="Cooperativo?"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/cartas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="Cartas?"
+        android:text="Ano de Lançamento"
         android:textSize="14sp" />
 
     <TextView
@@ -70,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus ante et erat sagittis placerat. Ut id lacus nec erat eleifend facilisis quis vel nibh. Vivamus commodo enim ut ornare laoreet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis sagittis felis at malesuada interdum. Maecenas faucibus velit eget leo luctus commodo. Ut arcu ipsum, vehicula et felis at, eleifend auctor nulla. Sed sit amet sem eu leo efficitur egestas. Maecenas eu metus et quam vulputate venenatis et ac velit. Praesent ut dui eget ex gravida sodales. Fusce ante sapien, dignissim eget facilisis vitae, interdum at diam. Aenean non neque orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  "
         android:textSize="14sp"
         android:textStyle="italic" />

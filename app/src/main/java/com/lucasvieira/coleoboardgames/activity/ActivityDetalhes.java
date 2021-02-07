@@ -26,18 +26,18 @@ public class ActivityDetalhes extends AppCompatActivity {
         Boardgame dados = (Boardgame) getIntent().getSerializableExtra("dados");
 
         nome = findViewById(R.id.nome);
-        duracao = findViewById(R.id.duracao);
-        descricao = findViewById(R.id.descricao);
-        capa = findViewById(R.id.capaImage);
-        dificuldade = findViewById(R.id.dificuldade);
-        cooperativo = findViewById(R.id.cooperativo);
-        cartas = findViewById(R.id.cartas);
-            max = findViewById(R.id.jogadores);
+//        duracao = findViewById(R.id.duracao);
+//        descricao = findViewById(R.id.descricao);
+//        capa = findViewById(R.id.capaImage);
+//        dificuldade = findViewById(R.id.dificuldade);
+//        cooperativo = findViewById(R.id.lancamento);
+//        cartas = findViewById(R.id.cartas);
+//        max = findViewById(R.id.jogadores);
 
         nome.setText(dados.getNome());
-        duracao.setText(dados.getDuracao());
-        descricao.setText(dados.getDescricao());
-        capa.setImageResource(dados.getCapa());
+//        duracao.setText(dados.getDuracao());
+//        descricao.setText(dados.getDescricao());
+//        capa.setImageResource(dados.getCapa());
 //        dificuldade.setText(dados.getDificuldade());
 //        cooperativo.setText(dados.getCooperativo());
 //        cartas.setText(dados.getCartas());

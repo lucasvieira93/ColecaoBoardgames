@@ -5,23 +5,23 @@ import java.io.Serializable;
 public class Boardgame implements Serializable   {
 
     private String nome;
-    private String duracao;
-    private int descricao;
+    private String minDuracao;
+    private String maxDuracao;
+    private String descricao;
     private int capa;
-    private int[] jogadores;
-    private String dificuldade;
-    private String cooperativo;
-    private String cartas;
+    private String minJogadores;
+    private String maxJogadores;
+    private String anoDeLancamento;
 
-    public Boardgame(String nome, String duração, int descrição, int capa) {
+    public Boardgame(String nome, String minDuracao, String maxDuracao, String descricao, int capa, String minJogadores, String maxJogadores, String anoDeLancamento) {
         this.nome = nome;
-        this.duracao = duração;
-        this.descricao = descrição;
+        this.minDuracao = minDuracao;
+        this.maxDuracao = maxDuracao;
+        this.descricao = descricao;
         this.capa = capa;
-//        this.jogadores = jogadores;
-//        this.dificuldade = dificuldade;
-//        this.cooperativo = cooperativo;
-//        this.cartas = cartas;
+        this.minJogadores = minJogadores;
+        this.maxJogadores = maxJogadores;
+        this.anoDeLancamento = anoDeLancamento;
     }
 
     public Boardgame(){ }
@@ -34,51 +34,27 @@ public class Boardgame implements Serializable   {
         this.nome = nome;
     }
 
-    public String getDuracao() {
-        return duracao;
+    public String getMinDuracao() {
+        return minDuracao;
     }
 
-    public void setDuracao(String duracao) {
-        this.duracao = duracao;
+    public void setMinDuracao(String minDuracao) {
+        this.minDuracao = minDuracao;
     }
 
-    public int[] getJogadores() {
-        return jogadores;
+    public String getMaxDuracao() {
+        return maxDuracao;
     }
 
-    public void setJogadores(int[] jogadores) {
-        this.jogadores = jogadores;
+    public void setMaxDuracao(String maxDuracao) {
+        this.maxDuracao = maxDuracao;
     }
 
-    public String getDificuldade() {
-        return dificuldade;
-    }
-
-    public void setDificuldade(String dificuldade) {
-        this.dificuldade = dificuldade;
-    }
-
-    public String getCooperativo() {
-        return cooperativo;
-    }
-
-    public void setCooperativo(String cooperativo) {
-        this.cooperativo = cooperativo;
-    }
-
-    public String getCartas() {
-        return cartas;
-    }
-
-    public void setCartas(String cartas) {
-        this.cartas = cartas;
-    }
-
-    public int getDescricao() {
+    public String getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(int descricao) {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
@@ -88,5 +64,29 @@ public class Boardgame implements Serializable   {
 
     public void setCapa(int capa) {
         this.capa = capa;
+    }
+
+    public String getMinJogadores() {
+        return minJogadores;
+    }
+
+    public void setMinJogadores(String minJogadores) {
+        this.minJogadores = minJogadores;
+    }
+
+    public String getMaxJogadores() {
+        return maxJogadores;
+    }
+
+    public void setMaxJogadores(String maxJogadores) {
+        this.maxJogadores = maxJogadores;
+    }
+
+    public String getAnoDeLancamento() {
+        return anoDeLancamento;
+    }
+
+    public void setAnoDeLancamento(String anoDeLancamento) {
+        this.anoDeLancamento = anoDeLancamento;
     }
 }
