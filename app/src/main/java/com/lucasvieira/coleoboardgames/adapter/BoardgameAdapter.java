@@ -39,9 +39,10 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
         //setar dados dos boards referenciando os componentes da linha 67
         holder.textNome.setText(boardgame.getNome());
 //        holder.textDuracao.setText(boardgame.getMinDuracao());
-//        holder.textDuracao.setText(boardgame.getMaxDuracao());
+        holder.textDuracao.setText(boardgame.getMaxDuracao());
         holder.textDescricao.setText(boardgame.getDescricao());
-        holder.capaBoard.setImageResource(boardgame.getCapa());
+        //holder.capaBoard.setImageResource(boardgame.getCapa());
+        holder.capaBoard.setImageBitmap(boardgame.getCapa());
 
     }
 
@@ -60,7 +61,7 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
 
             //referencias dos componentes
             textNome = itemView.findViewById(R.id.nomeBoard);
-//            textDuracao = itemView.findViewById(R.id.duracaoBoard);
+            textDuracao = itemView.findViewById(R.id.duracaoBoard);
             textDescricao = itemView.findViewById(R.id.descricaoBoard);
             capaBoard = itemView.findViewById(R.id.capaBoard);
 //            textDificuldade = itemView.findViewById(R.id.dificuldade);
