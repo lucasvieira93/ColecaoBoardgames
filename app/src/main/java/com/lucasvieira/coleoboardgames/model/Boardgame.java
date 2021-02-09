@@ -95,6 +95,6 @@ public class Boardgame implements Serializable   {
     }
 
     public String getDuracao(){
-        return this.getMinDuracao() + " - " + this.getMaxDuracao();
+        return this.getMinDuracao() + " - " + this.getMaxDuracao() + "min";
     }
 }
