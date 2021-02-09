@@ -188,9 +188,7 @@ public class MainActivity extends AppCompatActivity {
 /*                                Boardgame bg = listaBoardgames.get(position);
                                 Boardgame dados = new Boardgame(bg.getNome(), bg.getDescricao(), bg.getCapa());
 
-                                Intent intent = new Intent(getApplicationContext(), ActivityDetalhes.class);
-                                intent.putExtra("dados", dados);
-                                startActivity(intent);*/
+                                intent.putExtra("dados", dados);*/
 
                                 Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
                                 startActivity(intent);
@@ -212,9 +210,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Botão ainda sem ação Lucas!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
+                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
+                startActivity(intent);            }
         });
     }
 }

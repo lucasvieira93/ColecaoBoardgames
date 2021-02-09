@@ -1,14 +1,8 @@
 <resources>
     <string name="app_name">Coleção BG</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Strings used for fragments for navigation -->
 
     <string name="arcadiaquest">
         Em Arcadia Quest, os jogadores levam alianças de heróis intrépidos em uma campanha épica para destronar o lorde vampiro e recuperar o poderoso Arcadia.
@@ -34,5 +28,7 @@
         dois Selos de Excelência terá o privilégio de ser convidado para a corte do Maharaja.  Portanto, você terá de fazer melhor do que o seu concorrente direto,
         comprando, trocando e vendendo a preços melhores, ao mesmo tempo mantendo um olho em ambos os seus rebanhos de camelos.  Um jogo de cartas para dois comerciantes experientes!
         Quando é a sua vez, você pode tirar ou vender cartas.  Jaipur é um jogo de cartas acelerado, uma mistura de táticas, risco e sorte.</string>
+
+    <string name="title_activity_pesquisa">PesquisaActivity</string>
 
 </resources>
