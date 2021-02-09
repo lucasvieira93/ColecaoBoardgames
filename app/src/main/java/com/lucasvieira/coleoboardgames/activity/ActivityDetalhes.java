@@ -41,6 +41,6 @@ public class ActivityDetalhes extends AppCompatActivity {
 //        dificuldade.setText(dados.getDificuldade());
 //        cooperativo.setText(dados.getCooperativo());
 //        cartas.setText(dados.getCartas());
-//        min.setText(dados.getjogadores());
+//        min.setText(dados.getJogadores());
     }
 }

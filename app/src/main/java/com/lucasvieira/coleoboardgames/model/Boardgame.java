@@ -89,4 +89,12 @@ public class Boardgame implements Serializable   {
     public void setAnoDeLancamento(String anoDeLancamento) {
         this.anoDeLancamento = anoDeLancamento;
     }
+
+    public String getJogadores (){
+        return this.getMinJogadores() + " - " + this.getMaxJogadores();
+    }
+
+    public String getDuracao(){
+        return this.getMinDuracao() + " - " + this.getMaxDuracao();
+    }
 }
