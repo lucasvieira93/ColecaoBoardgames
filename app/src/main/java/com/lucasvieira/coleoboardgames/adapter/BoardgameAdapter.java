@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lucasvieira.coleoboardgames.R;
+import com.lucasvieira.coleoboardgames.activity.DownloadImageTask;
 import com.lucasvieira.coleoboardgames.model.Boardgame;
 
 import java.util.List;
@@ -41,8 +42,8 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
 //        holder.textDuracao.setText(boardgame.getMinDuracao());
         holder.textDuracao.setText(boardgame.getMaxDuracao());
         holder.textDescricao.setText(boardgame.getDescricao());
+        new DownloadImageTask(holder.capaBoard).execute(boardgame.getCapa());
         //holder.capaBoard.setImageResource(boardgame.getCapa());
-        holder.capaBoard.setImageBitmap(boardgame.getCapa());
 
     }
 

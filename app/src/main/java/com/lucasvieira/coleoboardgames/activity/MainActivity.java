@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
 
+
         String url = "https://api.boardgameatlas.com/api/search?name=catan&client_id=84n9GWJmZU&fields=name,min_playtime,max_playtime,description,image_url,min_players,max_players,year_published&limit=5";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -134,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                                 //variaveis GET
                                 String nome = jogo.getString("name");
                                 Picasso.get().load(jogo.getString("image_url"));
-//                                Bitmap capa = getImageBitmap(jogo.getString("image_url"));
+                                String capa = jogo.getString("image_url");
 //                                String minDuracao = jogo.getString("min_playtime");
                                 String maxDuracao = jogo.getString("max_playtime");
 //                                String anoDeLancamento = jogo.getString("year_published");
@@ -142,9 +143,11 @@ public class MainActivity extends AppCompatActivity {
 //                                String minJogadores = jogo.getString("min_players");
 //                                String maxJogadores = jogo.getString("max_players");
 
+
+
                                 //setando dados no objeto
                                 boardgame.setNome(nome);
-//                                boardgame.setCapa(capa);
+                                boardgame.setCapa(capa);
 //                                boardgame.setMinDuracao(minDuracao);
                                boardgame.setMaxDuracao(maxDuracao);
 //                                boardgame.setAnoDeLancamento(anoDeLancamento);

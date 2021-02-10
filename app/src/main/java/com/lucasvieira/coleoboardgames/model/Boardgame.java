@@ -3,6 +3,7 @@ package com.lucasvieira.coleoboardgames.model;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.Spanned;
+import android.widget.ImageView;
 
 import java.io.Serializable;
 
@@ -12,12 +13,12 @@ public class Boardgame implements Serializable   {
     private String minDuracao;
     private String maxDuracao;
     private Spanned descricao;
-    private Bitmap capa;
+    private String capa;
     private String minJogadores;
     private String maxJogadores;
     private String anoDeLancamento;
 
-    public Boardgame(String nome, String minDuracao, String maxDuracao, Spanned descricao, Bitmap  capa, String minJogadores, String maxJogadores, String anoDeLancamento) {
+    public Boardgame(String nome, String minDuracao, String maxDuracao, Spanned descricao, String capa, String minJogadores, String maxJogadores, String anoDeLancamento) {
         this.nome = nome;
         this.minDuracao = minDuracao;
         this.maxDuracao = maxDuracao;
@@ -62,11 +63,11 @@ public class Boardgame implements Serializable   {
         this.descricao = descricao;
     }
 
-    public Bitmap  getCapa() {
+    public String getCapa() {
         return capa;
     }
 
-    public void setCapa(Bitmap  capa) {
+    public void setCapa(String capa) {
         this.capa = capa;
     }
 
