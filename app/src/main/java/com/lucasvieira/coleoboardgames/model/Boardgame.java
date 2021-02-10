@@ -1,5 +1,7 @@
 package com.lucasvieira.coleoboardgames.model;
 
+import android.text.Spanned;
+
 import java.io.Serializable;
 
 public class Boardgame implements Serializable   {
@@ -7,13 +9,13 @@ public class Boardgame implements Serializable   {
     private String nome;
     private String minDuracao;
     private String maxDuracao;
-    private String descricao;
-    private int capa;
+    private Spanned descricao;
+    private String capa;
     private String minJogadores;
     private String maxJogadores;
     private String anoDeLancamento;
 
-    public Boardgame(String nome, String minDuracao, String maxDuracao, String descricao, int capa, String minJogadores, String maxJogadores, String anoDeLancamento) {
+    public Boardgame(String nome, String minDuracao, String maxDuracao, Spanned descricao, String capa, String minJogadores, String maxJogadores, String anoDeLancamento) {
         this.nome = nome;
         this.minDuracao = minDuracao;
         this.maxDuracao = maxDuracao;
@@ -24,7 +26,7 @@ public class Boardgame implements Serializable   {
         this.anoDeLancamento = anoDeLancamento;
     }
 
-    public Boardgame(){ }
+    public Boardgame(String nome, Spanned descricao, String capa, String anoDeLancamento, String jogadores, String duracao){ }
 
     public String getNome() {
         return nome;
@@ -50,19 +52,19 @@ public class Boardgame implements Serializable   {
         this.maxDuracao = maxDuracao;
     }
 
-    public String getDescricao() {
+    public Spanned getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
+    public void setDescricao(Spanned descricao) {
         this.descricao = descricao;
     }
 
-    public int getCapa() {
+    public String getCapa() {
         return capa;
     }
 
-    public void setCapa(int capa) {
+    public void setCapa(String capa) {
         this.capa = capa;
     }
 

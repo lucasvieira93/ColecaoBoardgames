@@ -1,6 +1,9 @@
 package com.lucasvieira.coleoboardgames.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.android.volley.Request;
@@ -23,6 +26,8 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 
@@ -36,7 +41,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Array;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,28 +86,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    private void listarBoargames() {
-//        Boardgame b1, b2, b3;
-//
-//        b1 = new Boardgame();
-//        b1.setNome("Arcadia Quest");
-//        b1.setDescricao("R.string.arcadiaquest");
-//        b1.setCapa(R.drawable.arcadiaquest);
-//        this.listaBoardgames.add(b1);
-//
-//        b2 = new Boardgame();
-//        b2.setNome("Camel Up");
-//        b2.setDescricao("R.string.camelup");
-//        b2.setCapa(R.drawable.camelup);
-//        this.listaBoardgames.add(b2);
-//
-//        b3 = new Boardgame();
-//        b3.setNome("Jaipur");
-//        b3.setDescricao("R.string.jaipur");
-//        b3.setCapa(R.drawable.jaipur);
-//        this.listaBoardgames.add(b3);
-//    }
-
     private void recuperarListagemBoardGame() {
 
         // Instantiate the RequestQueue.
@@ -121,27 +110,25 @@ public class MainActivity extends AppCompatActivity {
 
                                 //variaveis GET
                                 String nome = jogo.getString("name");
-//                                String capa = jogo.getString("image_url");
+                                String capa = jogo.getString("image_url");
                                 String minDuracao = jogo.getString("min_playtime");
                                 String maxDuracao = jogo.getString("max_playtime");
-//                                String anoDeLancamento = jogo.getString("year_published");
-//                                String descricao = jogo.getString("description");
-//                                String minJogadores = jogo.getString("min_players");
-//                                String maxJogadores = jogo.getString("max_players");
+                                String anoDeLancamento = jogo.getString("year_published");
+                                Spanned descricao = Html.fromHtml(jogo.getString("description"));
+                                String minJogadores = jogo.getString("min_players");
+                                String maxJogadores = jogo.getString("max_players");
 
                                 //setando dados no objeto
                                 boardgame.setNome(nome);
-//                                boardgame.setCapa(capa);
+                                boardgame.setCapa(capa);
                                 boardgame.setMinDuracao(minDuracao);
                                 boardgame.setMaxDuracao(maxDuracao);
-//                                boardgame.setAnoDeLancamento(anoDeLancamento);
-//                                boardgame.setDescricao(descricao);
-//                                boardgame.setMaxJogadores(minJogadores);
-//                                boardgame.setMaxJogadores(maxJogadores);
+                                boardgame.setAnoDeLancamento(anoDeLancamento);
+                                boardgame.setDescricao(descricao);
+                                boardgame.setMaxJogadores(minJogadores);
+                                boardgame.setMaxJogadores(maxJogadores);
 
                                 listaBoardgames.add(boardgame);
-
-                                Log.i("LISTA", "msg: " + nome);
                             }
                             metodoRecyclerView();
                         } catch (JSONException e) {
@@ -159,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Add the request to the RequestQueue.
         queue.add(jsonObjectRequest);
-
     }
 
     private void metodoRecyclerView() {
@@ -185,17 +171,17 @@ public class MainActivity extends AppCompatActivity {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-/*                                Boardgame bg = listaBoardgames.get(position);
-                                Boardgame dados = new Boardgame(bg.getNome(), bg.getDescricao(), bg.getCapa());
+                                Boardgame bg = listaBoardgames.get(position);
+                                Boardgame dados = new Boardgame(bg.getNome(), bg.getDescricao(), bg.getCapa(), bg.getAnoDeLancamento(), bg.getJogadores(), bg.getDuracao());
 
-                                intent.putExtra("dados", dados);*/
-
-                                Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), ActivityDetalhes.class);
+                                intent.putExtra("dados", dados);
                                 startActivity(intent);
                             }
 
                             @Override
                             public void onLongItemClick(View view, int position) {
+                                //Ao segurar item lista
                                 Boardgame bg = listaBoardgames.get(position);
                                 Toast.makeText(MainActivity.this, "Nome do jogo: " + bg.getNome(), Toast.LENGTH_SHORT).show();
                             }
@@ -206,12 +192,14 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }));
 
+        //botão para adicionar jogo
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
-                startActivity(intent);            }
+                startActivity(intent);
+            }
         });
     }
 }

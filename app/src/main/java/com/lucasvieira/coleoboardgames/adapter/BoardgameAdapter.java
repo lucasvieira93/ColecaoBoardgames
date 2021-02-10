@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lucasvieira.coleoboardgames.R;
+import com.lucasvieira.coleoboardgames.activity.DownloadImageTask;
 import com.lucasvieira.coleoboardgames.model.Boardgame;
 
 import java.util.List;
@@ -39,10 +40,10 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
 
         //setar dados dos boards referenciando os componentes da linha 67
         holder.textNome.setText(boardgame.getNome());
-//        holder.textDuracao.setText(boardgame.getMinDuracao());
         holder.textDuracao.setText(boardgame.getDuracao());
         holder.textDescricao.setText(boardgame.getDescricao());
-//        holder.capaBoard.setImageResource(boardgame.getCapa());
+        new DownloadImageTask(holder.capaBoard).execute(boardgame.getCapa());
+//        holder.textJogador.setText(boardgame.getJogadores());
 
     }
 
@@ -53,7 +54,7 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         //variáveis dos componentes
-        TextView textNome, textDuracao, textDificuldade, textDescricao, textCoop, textCartas, jogador;
+        TextView textNome, textDuracao, textDescricao, textJogador;
         ImageView capaBoard;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -64,10 +65,7 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
             textDuracao = itemView.findViewById(R.id.duracaoBoard);
             textDescricao = itemView.findViewById(R.id.descricaoBoard);
             capaBoard = itemView.findViewById(R.id.capaBoard);
-//            textDificuldade = itemView.findViewById(R.id.dificuldade);
-//            textCoop = itemView.findViewById(R.id.cooperativo);
-//            textCartas = itemView.findViewById(R.id.cartas);
-//            jogador = itemView.findViewById(R.id.jogador);
+//            textJogador = itemView.findViewById(R.id.jogadores);
         }
     }
 }

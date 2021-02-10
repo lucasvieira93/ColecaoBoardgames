@@ -12,7 +12,7 @@ import com.lucasvieira.coleoboardgames.model.Boardgame;
 
 public class ActivityDetalhes extends AppCompatActivity {
 
-    private TextView nome, duracao, descricao, cartas, cooperativo, dificuldade, min, max;
+    private TextView nome, duracao, descricao, jogadores, anoDeLancamento;
     private ImageView capa;
 
     @Override
@@ -22,25 +22,20 @@ public class ActivityDetalhes extends AppCompatActivity {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-
         Boardgame dados = (Boardgame) getIntent().getSerializableExtra("dados");
 
         nome = findViewById(R.id.nome);
-//        duracao = findViewById(R.id.duracao);
-//        descricao = findViewById(R.id.descricao);
-//        capa = findViewById(R.id.capaImage);
-//        dificuldade = findViewById(R.id.dificuldade);
-//        cooperativo = findViewById(R.id.lancamento);
-//        cartas = findViewById(R.id.cartas);
-//        max = findViewById(R.id.jogadores);
+        duracao = findViewById(R.id.duracao);
+        descricao = findViewById(R.id.descricao);
+        capa = findViewById(R.id.capaImage);
+        anoDeLancamento = findViewById(R.id.lancamento);
+        jogadores = findViewById(R.id.jogadores);
 
         nome.setText(dados.getNome());
-//        duracao.setText(dados.getDuracao());
-//        descricao.setText(dados.getDescricao());
-//        capa.setImageResource(dados.getCapa());
-//        dificuldade.setText(dados.getDificuldade());
-//        cooperativo.setText(dados.getCooperativo());
-//        cartas.setText(dados.getCartas());
-//        min.setText(dados.getJogadores());
+        duracao.setText(dados.getDuracao());
+        descricao.setText(dados.getDescricao());
+        capa.setImageResource(dados.getCapa());
+        jogadores.setText(dados.getJogadores());
+        anoDeLancamento.setText(dados.getAnoDeLancamento());
     }
 }
