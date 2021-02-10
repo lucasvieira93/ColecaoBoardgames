@@ -18,7 +18,6 @@ import com.lucasvieira.coleoboardgames.R;
 import com.lucasvieira.coleoboardgames.adapter.BoardgameAdapter;
 import com.lucasvieira.coleoboardgames.model.Boardgame;
 import com.lucasvieira.coleoboardgames.model.RecyclerItemClickListener;
-import com.squareup.picasso.Picasso;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -87,29 +86,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    private void listarBoargames() {
-//        Boardgame b1, b2, b3;
-//
-//        b1 = new Boardgame();
-//        b1.setNome("Arcadia Quest");
-//        b1.setDescricao("R.string.arcadiaquest");
-//        b1.setCapa(R.drawable.arcadiaquest);
-//        this.listaBoardgames.add(b1);
-//
-//        b2 = new Boardgame();
-//        b2.setNome("Camel Up");
-//        b2.setDescricao("R.string.camelup");
-//        b2.setCapa(R.drawable.camelup);
-//        this.listaBoardgames.add(b2);
-//
-//        b3 = new Boardgame();
-//        b3.setNome("Jaipur");
-//        b3.setDescricao("R.string.jaipur");
-//        b3.setCapa(R.drawable.jaipur);
-//        this.listaBoardgames.add(b3);
-//    }
-
-    private void recuperarListagemBoardGame(){
+    private void recuperarListagemBoardGame() {
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -133,9 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 //variaveis GET
                                 String nome = jogo.getString("name");
-                                Picasso.get().load(jogo.getString("image_url"));
                                 String capa = jogo.getString("image_url");
-//                                String capa = jogo.getString("image_url");
                                 String minDuracao = jogo.getString("min_playtime");
                                 String maxDuracao = jogo.getString("max_playtime");
 //                                String anoDeLancamento = jogo.getString("year_published");
@@ -146,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
                                 //setando dados no objeto
                                 boardgame.setNome(nome);
                                 boardgame.setCapa(capa);
-                               boardgame.setMaxDuracao(maxDuracao);
                                 boardgame.setMinDuracao(minDuracao);
                                 boardgame.setMaxDuracao(maxDuracao);
 //                                boardgame.setAnoDeLancamento(anoDeLancamento);
@@ -174,78 +148,6 @@ public class MainActivity extends AppCompatActivity {
         queue.add(jsonObjectRequest);
     }
 
-
-
-    public static Bitmap getImageBitmap(String src) {
-        try {
-            URL url = new URL(src);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-            return myBitmap;
-        } catch (IOException e) {
-            // Log exception
-            return null;
-        }
-    }
-
-
-    void metodoRecycleView() {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        recyclerBoard = findViewById(R.id.recyclerView);
-
-        //Configurar adapter
-        BoardgameAdapter adapter = new BoardgameAdapter(listaBoardgames);
-
-        //Configurar RecyclerView
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerBoard.setLayoutManager(layoutManager);
-        recyclerBoard.setHasFixedSize(true);
-        recyclerBoard.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
-        recyclerBoard.setAdapter(adapter);
-        recyclerBoard.addOnItemTouchListener(
-                new RecyclerItemClickListener(
-                        getApplicationContext(),
-                        recyclerBoard,
-                        new RecyclerItemClickListener.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, int position) {
-/*                                Boardgame bg = listaBoardgames.get(position);
-                                Boardgame dados = new Boardgame(bg.getNome(), bg.getDescricao(), bg.getCapa());
-
-                                Intent intent = new Intent(getApplicationContext(), ActivityDetalhes.class);
-                                intent.putExtra("dados", dados);
-                                startActivity(intent);*/
-                            }
-
-                            @Override
-                            public void onLongItemClick(View view, int position) {
-                                Boardgame bg = listaBoardgames.get(position);
-                                Toast.makeText(MainActivity.this, "Nome do jogo: " + bg.getNome(), Toast.LENGTH_SHORT).show();
-                            }
-
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                            }
-                        }));
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Botão ainda sem ação Lucas!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
-
     private void metodoRecyclerView() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -269,17 +171,18 @@ public class MainActivity extends AppCompatActivity {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-/*                                Boardgame bg = listaBoardgames.get(position);
+/*                              Boardgame bg = listaBoardgames.get(position);
                                 Boardgame dados = new Boardgame(bg.getNome(), bg.getDescricao(), bg.getCapa());
-
-                                intent.putExtra("dados", dados);*/
-
                                 Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
+                                intent.putExtra("dados", dados);
                                 startActivity(intent);
+*/
+
                             }
 
                             @Override
                             public void onLongItemClick(View view, int position) {
+                                //Ao segurar item lista
                                 Boardgame bg = listaBoardgames.get(position);
                                 Toast.makeText(MainActivity.this, "Nome do jogo: " + bg.getNome(), Toast.LENGTH_SHORT).show();
                             }
@@ -290,12 +193,14 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }));
 
+        //botão para adicionar jogo
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
-                startActivity(intent);            }
+                startActivity(intent);
+            }
         });
     }
 }
