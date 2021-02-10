@@ -36,15 +36,14 @@ public class BoardgameAdapter extends RecyclerView.Adapter<BoardgameAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         Boardgame boardgame = listaBoardgames.get(position);
+        String jogadores = (boardgame.getMinJogadores() + " - " + boardgame.getMaxJogadores());
 
         //setar dados dos boards referenciando os componentes da linha 67
         holder.textNome.setText(boardgame.getNome());
 //        holder.textDuracao.setText(boardgame.getMinDuracao());
-        holder.textDuracao.setText(boardgame.getMaxDuracao());
-        holder.textDescricao.setText(boardgame.getDescricao());
         new DownloadImageTask(holder.capaBoard).execute(boardgame.getCapa());
-        //holder.capaBoard.setImageResource(boardgame.getCapa());
-
+        holder.textDuracao.setText(boardgame.getDuracao());
+        holder.textDescricao.setText(boardgame.getDescricao());
     }
 
     @Override

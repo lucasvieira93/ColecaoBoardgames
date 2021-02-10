@@ -114,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
 
-
         String url = "https://api.boardgameatlas.com/api/search?name=catan&client_id=84n9GWJmZU&fields=name,min_playtime,max_playtime,description,image_url,min_players,max_players,year_published&limit=5";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -128,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                             JSONArray lista = response.getJSONArray("games");
 //                            Log.i("INICIO", "iniciando lista");
 
-                            for(int i = 0; i < lista.length(); i++){
+                            for (int i = 0; i < lista.length(); i++) {
                                 Boardgame boardgame = new Boardgame();
                                 JSONObject jogo = lista.getJSONObject(i);
 
@@ -136,30 +135,28 @@ public class MainActivity extends AppCompatActivity {
                                 String nome = jogo.getString("name");
                                 Picasso.get().load(jogo.getString("image_url"));
                                 String capa = jogo.getString("image_url");
-//                                String minDuracao = jogo.getString("min_playtime");
+//                                String capa = jogo.getString("image_url");
+                                String minDuracao = jogo.getString("min_playtime");
                                 String maxDuracao = jogo.getString("max_playtime");
 //                                String anoDeLancamento = jogo.getString("year_published");
                                 Spanned descricao = Html.fromHtml(jogo.getString("description"));
 //                                String minJogadores = jogo.getString("min_players");
 //                                String maxJogadores = jogo.getString("max_players");
 
-
-
                                 //setando dados no objeto
                                 boardgame.setNome(nome);
                                 boardgame.setCapa(capa);
-//                                boardgame.setMinDuracao(minDuracao);
                                boardgame.setMaxDuracao(maxDuracao);
+                                boardgame.setMinDuracao(minDuracao);
+                                boardgame.setMaxDuracao(maxDuracao);
 //                                boardgame.setAnoDeLancamento(anoDeLancamento);
                                 boardgame.setDescricao(descricao);
 //                                boardgame.setMaxJogadores(minJogadores);
 //                                boardgame.setMaxJogadores(maxJogadores);
 
                                 listaBoardgames.add(boardgame);
-
-                                Log.i("LISTA", "msg: " + descricao);
                             }
-                            metodoRecycleView();
+                            metodoRecyclerView();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -246,6 +243,59 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Botão ainda sem ação Lucas!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
+        });
+    }
+
+    private void metodoRecyclerView() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        recyclerBoard = findViewById(R.id.recyclerView);
+
+        //Configurar adapter
+        BoardgameAdapter adapter = new BoardgameAdapter(listaBoardgames);
+
+        //Configurar RecyclerView
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerBoard.setLayoutManager(layoutManager);
+        recyclerBoard.setHasFixedSize(true);
+        recyclerBoard.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+        recyclerBoard.setAdapter(adapter);
+        recyclerBoard.addOnItemTouchListener(
+                new RecyclerItemClickListener(
+                        getApplicationContext(),
+                        recyclerBoard,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+/*                                Boardgame bg = listaBoardgames.get(position);
+                                Boardgame dados = new Boardgame(bg.getNome(), bg.getDescricao(), bg.getCapa());
+
+                                intent.putExtra("dados", dados);*/
+
+                                Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+                                Boardgame bg = listaBoardgames.get(position);
+                                Toast.makeText(MainActivity.this, "Nome do jogo: " + bg.getNome(), Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            }
+                        }));
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
+                startActivity(intent);            }
         });
     }
 }

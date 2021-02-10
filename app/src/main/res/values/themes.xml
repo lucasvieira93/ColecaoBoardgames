@@ -21,5 +21,9 @@
 
     <style name="Theme.ColeçãoBoardgames.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+    <style name="Theme.ColeçãoBoardgames.TelaCheia" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
     <style name="Theme.ColeçãoBoardgames.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
