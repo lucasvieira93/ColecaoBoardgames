@@ -27,14 +27,14 @@ public class ActivityDetalhes extends AppCompatActivity {
         nome = findViewById(R.id.nome);
         duracao = findViewById(R.id.duracao);
         descricao = findViewById(R.id.descricao);
-        capa = findViewById(R.id.capaImage);
+//        capa = findViewById(R.id.capaImage);
         anoDeLancamento = findViewById(R.id.lancamento);
         jogadores = findViewById(R.id.jogadores);
 
         nome.setText(dados.getNome());
         duracao.setText(dados.getDuracao());
         descricao.setText(dados.getDescricao());
-        capa.setImageResource(dados.getCapa());
+//        new DownloadImageTask.execute(dados.getCapa());
         jogadores.setText(dados.getJogadores());
         anoDeLancamento.setText(dados.getAnoDeLancamento());
     }
