@@ -61,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recuperarListagemBoardGame();
+        Boardgame boardgame = new Boardgame();
+        boardgame.recuperarListagemBoardGame(getApplicationContext());
+        metodoRecyclerView();
+
     }
 
     @Override
@@ -84,68 +87,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void recuperarListagemBoardGame() {
-
-        // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
-
-        String url = "https://api.boardgameatlas.com/api/search?name=catan&client_id=84n9GWJmZU&fields=name,min_playtime,max_playtime,description,image_url,min_players,max_players,year_published&limit=5";
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.i("INFO", "Response: " + response.toString());
-
-                        try {
-                            JSONArray lista = response.getJSONArray("games");
-//                            Log.i("INICIO", "iniciando lista");
-
-                            for (int i = 0; i < lista.length(); i++) {
-                                Boardgame boardgame = new Boardgame();
-                                JSONObject jogo = lista.getJSONObject(i);
-
-                                //variaveis GET
-                                String nome = jogo.getString("name");
-                                String capa = jogo.getString("image_url");
-                                String minDuracao = jogo.getString("min_playtime");
-                                String maxDuracao = jogo.getString("max_playtime");
-                                String anoDeLancamento = jogo.getString("year_published");
-                                Spanned descricao = Html.fromHtml(jogo.getString("description"));
-                                String minJogadores = jogo.getString("min_players");
-                                String maxJogadores = jogo.getString("max_players");
-
-                                //setando dados no objeto
-                                boardgame.setNome(nome);
-                                boardgame.setCapa(capa);
-                                boardgame.setMinDuracao(minDuracao);
-                                boardgame.setMaxDuracao(maxDuracao);
-                                boardgame.setAnoDeLancamento(anoDeLancamento);
-                                boardgame.setDescricao(descricao);
-                                boardgame.setMaxJogadores(minJogadores);
-                                boardgame.setMaxJogadores(maxJogadores);
-
-                                listaBoardgames.add(boardgame);
-                            }
-                            metodoRecyclerView();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.i("INFO", "Mensagem:" + error.getMessage());
-
-                    }
-                });
-
-        // Add the request to the RequestQueue.
-        queue.add(jsonObjectRequest);
     }
 
     private void metodoRecyclerView() {
@@ -172,10 +113,10 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onItemClick(View view, int position) {
                                 Boardgame bg = listaBoardgames.get(position);
-                                Boardgame dados = new Boardgame(bg.getNome(), bg.getDescricao(), bg.getCapa(), bg.getAnoDeLancamento(), bg.getJogadores(), bg.getDuracao());
+//                                Boardgame dados = new Boardgame(bg.getNome(), bg.getDescricao(), bg.getCapa(), bg.getAnoDeLancamento(), bg.getJogadores(), bg.getDuracao());
 
                                 Intent intent = new Intent(getApplicationContext(), ActivityDetalhes.class);
-                                intent.putExtra("dados", dados);
+//                                intent.putExtra("dados", dados);
                                 startActivity(intent);
                             }
 
@@ -190,7 +131,9 @@ public class MainActivity extends AppCompatActivity {
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                             }
-                        }));
+                        }
+                )
+        );
 
         //botão para adicionar jogo
         FloatingActionButton fab = findViewById(R.id.fab);

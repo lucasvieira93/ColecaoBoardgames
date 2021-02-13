@@ -1,8 +1,23 @@
 package com.lucasvieira.coleoboardgames.model;
 
+import android.content.Context;
+import android.text.Html;
 import android.text.Spanned;
+import android.util.Log;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Boardgame implements Serializable   {
 
@@ -26,7 +41,7 @@ public class Boardgame implements Serializable   {
         this.anoDeLancamento = anoDeLancamento;
     }
 
-    public Boardgame(String nome, Spanned descricao, String capa, String anoDeLancamento, String jogadores, String duracao){ }
+    public Boardgame(){ }
 
     public String getNome() {
         return nome;
@@ -98,5 +113,66 @@ public class Boardgame implements Serializable   {
 
     public String getDuracao(){
         return this.getMinDuracao() + " - " + this.getMaxDuracao() + "min";
+    }
+
+    public void recuperarListagemBoardGame(Context context) {
+
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(context);
+
+        String url = "https://api.boardgameatlas.com/api/search?name=catan&client_id=84n9GWJmZU&fields=name,min_playtime,max_playtime,description,image_url,min_players,max_players,year_published&limit=5";
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.i("INFO", "Response: " + response.toString());
+
+                        try {
+                            JSONArray lista = response.getJSONArray("games");
+//                            Log.i("INICIO", "iniciando lista");
+
+                            for (int i = 0; i < lista.length(); i++) {
+                                Boardgame boardgame = new Boardgame();
+                                JSONObject jogo = lista.getJSONObject(i);
+
+                                //variaveis GET
+                                String nome = jogo.getString("name");
+                                String capa = jogo.getString("image_url");
+                                String minDuracao = jogo.getString("min_playtime");
+                                String maxDuracao = jogo.getString("max_playtime");
+                                String anoDeLancamento = jogo.getString("year_published");
+                                Spanned descricao = Html.fromHtml(jogo.getString("description"));
+                                String minJogadores = jogo.getString("min_players");
+                                String maxJogadores = jogo.getString("max_players");
+
+                                //setando dados no objeto
+                                boardgame.setNome(nome);
+                                boardgame.setCapa(capa);
+                                boardgame.setMinDuracao(minDuracao);
+                                boardgame.setMaxDuracao(maxDuracao);
+                                boardgame.setAnoDeLancamento(anoDeLancamento);
+                                boardgame.setDescricao(descricao);
+                                boardgame.setMaxJogadores(minJogadores);
+                                boardgame.setMaxJogadores(maxJogadores);
+
+//                                listaBG.add(boardgame);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.i("INFO", "Mensagem:" + error.getMessage());
+
+                    }
+                });
+
+        // Add the request to the RequestQueue.
+        queue.add(jsonObjectRequest);
     }
 }
